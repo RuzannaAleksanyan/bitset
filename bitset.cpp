@@ -6,22 +6,22 @@ Bitset::Bitset(int count)
 	m_size = 0;
 	m_capasity = count/elemSize + 1;
 	m_arr = new int[m_capasity];
-    for(int i = 0; i < m_capasity; ++i) {
-        m_arr[i] = 0;
-    }
+	for(int i = 0; i < m_capasity; ++i) {
+		m_arr[i] = 0;
+	}
 }
 
 Bitset::~Bitset() {
-    m_size = 0;
-    m_capasity = 0;
-    delete m_arr;
+	m_size = 0;
+	m_capasity = 0;
+	delete m_arr;
 }
 
 void Bitset::set(int index)
 {
 	if(index < 0 || index >= m_capasity * elemSize) 
 	{
-        throw std::out_of_range("Invalid index");
+        	throw std::out_of_range("Invalid index");
 	}
 
 	m_arr[index/elemSize] |= (1 << (index - (index/elemSize)*elemSize));
@@ -31,7 +31,7 @@ void Bitset::reset(int index)
 {
 	if(index < 0 || index >= m_capasity*elemSize)
 	{
-        throw std::out_of_range("Invalid index");
+        	throw std::out_of_range("Invalid index");
 	}
     
 	m_arr[index/elemSize] &= ((!1) << (index - (index/elemSize)*elemSize)); 
@@ -52,7 +52,8 @@ void Bitset::resize()
 
 void Bitset::swap(int i, int j)
 {
-    if(i < 0 || i >= m_capasity * elemSize || j < 0 || j >= m_capasity * elemSize) {
+    if(i < 0 || i >= m_capasity * elemSize || j < 0 || j >= m_capasity * elemSize) 
+    {
         throw std::out_of_range("Invalid index");
     }
 
@@ -105,12 +106,12 @@ void Bitset::reverse()
 
 bool Bitset::test(int index) const
 {
-    if (index < 0 || index >= m_capasity * elemSize)
-    {
-        throw std::out_of_range("Invalid index");
-    }
-
-    return (m_arr[index / elemSize] >> (index - (index / elemSize) * elemSize)) & 1;
+	if (index < 0 || index >= m_capasity * elemSize)
+	{
+		throw std::out_of_range("Invalid index");
+	}
+	
+	return (m_arr[index / elemSize] >> (index - (index / elemSize) * elemSize)) & 1;
 }
 
 void Bitset::push_back(int elem)
