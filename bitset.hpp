@@ -2,8 +2,6 @@
 #define BITSET
 #include <iostream>
 
-const int elemSize = 8*sizeof(int);
-
 class Bitset
 {
 private:
