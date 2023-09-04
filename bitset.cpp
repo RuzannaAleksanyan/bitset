@@ -1,5 +1,6 @@
 #include "bitset.hpp"
 
+const int elemSize = 8*sizeof(int);
 
 Bitset::Bitset(int count)
 {
